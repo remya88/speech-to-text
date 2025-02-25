@@ -1,0 +1,42 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# Dependency directories
+/node_modules/
+/dist/
+/tmp/
+/out-tsc/
+
+# Angular build output
+.angular/
+
+# IDE or editor directories
+.vscode/
+/.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# System files
+.DS_Store
+Thumbs.db
+
+# TypeScript specific files
+*.tsbuildinfo
+
+# Temporary files from editor
+*.swp
+*.swo
+
+# Environment files
+.env
+.env.*.local
+
+# Angular CLI environment
+.angular-cli.json
+
+# Firebase
+firebase-debug.log
