@@ -1,0 +1,51 @@
+<div class="container mat-elevation-z8">
+  <mat-card class="speech-card">
+    <mat-card-header>
+      <mat-card-title>🎙️ Speech to Sentiment Analysis</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="button-container">
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="speechService.startListening()"
+          [disabled]="speechService.isListening"
+        >
+          🎤 Start Speaking
+        </button>
+        <button
+          mat-raised-button
+          color="warn"
+          (click)="speechService.stopListening()"
+          [disabled]="!speechService.isListening"
+        >
+          ⏹️ Stop
+        </button>
+      </div>
+
+      <div *ngIf="speechService.text" class="transcription">
+        <mat-divider></mat-divider>
+        <p><strong>Transcription:</strong> {{ speechService.text }}</p>
+      </div>
+
+      <div class="analyze-btn">
+        <button
+          mat-stroked-button
+          color="accent"
+          (click)="analyzeSpeech()"
+          [disabled]="!speechService.text || isLoading"
+        >
+          🔍 Analyze Sentiment
+        </button>
+      </div>
+
+      <div *ngIf="sentiment" class="sentiment-result">
+        <mat-divider></mat-divider>
+        <p><strong>Sentiment:</strong> {{ sentiment }}</p>
+      </div>
+
+      <mat-spinner *ngIf="isLoading" diameter="50"></mat-spinner>
+    </mat-card-content>
+  </mat-card>
+</div>
